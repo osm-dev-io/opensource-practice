@@ -13,6 +13,7 @@ a { color: inherit; }
 .site-wrap { max-width: 1120px; min-height: 100vh; margin: 0 auto; padding: 0 28px; }
 .site-header { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid #e4e8f0; }
 .site-brand { font-size: 16px; font-weight: 800; letter-spacing: -.025em; text-decoration: none; }
+.header-actions { display: flex; align-items: center; gap: 28px; }
 .header-link { color: #53647c; font-size: 14px; font-weight: 600; text-decoration: none; }
 .header-link:hover { color: #3157c9; }
 .participants { padding: 24px 0 40px; }
@@ -32,8 +33,9 @@ a { color: inherit; }
 }
 
 @media (max-width: 540px) {
-  .site-header { min-height: 70px; }
+  .site-header { min-height: 70px; flex-wrap: wrap; padding: 16px 0; }
   .site-brand { font-size: 14px; }
+  .header-actions { width: 100%; justify-content: space-between; gap: 12px; }
   .header-link { font-size: 12px; }
   .participants { padding-top: 20px; }
   .participant-grid { grid-template-columns: 1fr; }
