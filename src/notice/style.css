@@ -40,8 +40,9 @@ a { color: inherit; }
 .letter-section h2 { margin: 0 0 24px; font-size: 1.6em; line-height: 1.4; letter-spacing: -.04em; }
 .letter-section p { margin: 0 0 20px; word-break: keep-all; }
 .letter-section p:last-child { margin-bottom: 0; }
-.promise-list, .example-list { margin: 0; padding-left: 1.5em; }
-.promise-list li, .example-list li { padding-left: .2em; }
+.promise-list { margin: 0; padding-left: 1.5em; }
+.promise-list li { padding-left: .2em; }
+.letter-section p a { color: #3659c4; font-weight: 700; text-underline-offset: 3px; }
 .quote-panel { width: 100%; min-width: 580px; margin-top: 32px; padding: 26px 30px; border-left: 4px solid #7892e8; border-radius: 0 14px 14px 0; background: #f0f4ff; color: #3b528d; font-weight: 700; word-break: keep-all; }
 .reference-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
 .reference-links a { display: block; padding: 14px 18px; border: 1px solid #dce3f2; border-radius: 10px; color: #3659c4; font-size: .9em; font-weight: 700; text-decoration: none; }
