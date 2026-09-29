@@ -12,3 +12,12 @@
 3. 이슈에 어떤 내용으로 채울지 답변으로 적습니다.
 
    예시: “제가 해볼게요. 관심 분야랑 프로필 사진을 넣어서 꾸며보겠습니다.”
+
+## 버그 제보하기
+
+[수강생들께 드리는 말씀](https://osm-dev-io.github.io/opensource-practice/notice/index.html) 페이지에 현재 버그와 오타가 많습니다. 발견한 문제를 [이슈 탭](https://github.com/osm-dev-io/opensource-practice/issues)을 통해 제보해 주세요.
+
+버그 제보 이슈는 아래와 같이 적어 주세요.
+
+- 최대한 구체적으로 증상을 설명합니다.
+- 가능하다면 스크린샷을 첨부합니다.
