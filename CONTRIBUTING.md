@@ -22,6 +22,8 @@
 - 최대한 구체적으로 증상을 설명합니다.
 - 가능하다면 스크린샷을 첨부합니다.
 
+모범 사례는 [이슈 #16](https://github.com/osm-dev-io/opensource-practice/issues/16)을 참고해 주세요.
+
 ## 빈 화면 채우기 (PR 제출)
 
 1. **저장소를 fork합니다.**
