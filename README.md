@@ -20,3 +20,7 @@ git clone https://github.com/osm-dev-io/opensource-practice.git
 
 2. 복제된 `opensource-practice` 폴더를 엽니다.
 3. `src/index.html`을 브라우저에서 엽니다.
+
+## 기여하기
+
+issues와 PR은 언제나 환영입니다! 자세한 기여 방법은 [CONTRIBUTING.md](CONTRIBUTING.md) 파일을 참고해 주세요.
