@@ -5,26 +5,291 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>심*현 | 인프런 오픈소스 챌린지</title>
     <style>
-      body {
+      :root {
+        color-scheme: dark;
+        --bg: #0d1117;
+        --panel: #161b22;
+        --border: #30363d;
+        --text: #c9d1d9;
+        --muted: #8b949e;
+        --accent: #7ee787;
+        --accent2: #79c0ff;
+        --accent3: #d2a8ff;
+        --prompt: #ff7b72;
+      }
+
+      * {
         box-sizing: border-box;
+      }
+
+      body {
         min-height: 100vh;
         margin: 0;
         padding: 24px;
         display: grid;
         place-items: center;
-        font-family: sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "SFMono-Regular", "Consolas", "Liberation Mono", Menlo, Courier, monospace;
+      }
+
+      .terminal {
+        width: 100%;
+        max-width: 720px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      }
+
+      .titlebar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        background: #0d1117;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .dot.red { background: #ff5f56; }
+      .dot.yellow { background: #ffbd2e; }
+      .dot.green { background: #27c93f; }
+
+      .titlebar span {
+        margin-left: 8px;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .body {
+        padding: 24px 28px 32px;
+        line-height: 1.7;
+      }
+
+      .line {
+        margin: 0 0 6px;
+        word-break: break-word;
+      }
+
+      .prompt {
+        color: var(--prompt);
+      }
+
+      .path {
+        color: var(--accent2);
+      }
+
+      .cmd {
+        color: var(--text);
+      }
+
+      .comment {
+        color: var(--muted);
       }
 
       h1 {
-        margin: 0;
-        font-size: clamp(2rem, 5vw, 4rem);
-        line-height: 1.4;
-        text-align: center;
-        word-break: keep-all;
+        margin: 0 0 4px;
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+        color: var(--accent);
+      }
+
+      .section-title {
+        margin: 28px 0 12px;
+        font-size: 0.95rem;
+        color: var(--accent3);
+      }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 4px 0 0;
+      }
+
+      .badge {
+        padding: 4px 10px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: #0d1117;
+        color: var(--accent2);
+        font-size: 0.85rem;
+      }
+
+      ul.history {
+        margin: 4px 0 0;
+        padding-left: 20px;
+        color: var(--text);
+      }
+
+      ul.history li {
+        margin-bottom: 8px;
+      }
+
+      ul.history li::marker {
+        color: var(--accent);
+      }
+
+      .projects {
+        margin: 4px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .project {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        background: #0d1117;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+      }
+
+      .project-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .project-name {
+        color: var(--text);
+      }
+
+      .project-name .code {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .project-role {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .status {
+        flex-shrink: 0;
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        white-space: nowrap;
+      }
+
+      .status.production {
+        color: var(--accent);
+        border: 1px solid var(--accent);
+      }
+
+      .status.developing {
+        color: var(--accent3);
+        border: 1px solid var(--accent3);
+      }
+
+      .muted-small {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-top: 24px;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 1em;
+        background: var(--accent);
+        vertical-align: text-bottom;
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink {
+        50% { opacity: 0; }
       }
     </style>
   </head>
   <body>
-    <h1>심*현님. 이 페이지를 자유롭게 꾸며주세요.</h1>
+    <main class="terminal">
+      <div class="titlebar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span>profile@sim-hyun: ~</span>
+      </div>
+      <div class="body">
+        <p class="line"><span class="prompt">$</span> <span class="cmd">whoami</span></p>
+        <h1>심*현</h1>
+        <p class="line comment"># Embedded Software Engineer</p>
+
+        <p class="section-title"><span class="prompt">$</span> <span class="cmd">cat</span> <span class="path">interests.txt</span></p>
+        <div class="badges">
+          <span class="badge">Embedded</span>
+          <span class="badge">AUTOSAR</span>
+          <span class="badge">SDV</span>
+          <span class="badge">CAN</span>
+        </div>
+
+        <p class="section-title"><span class="prompt">$</span> <span class="cmd">git log</span> <span class="path">--author="심*현"</span></p>
+        <ul class="history">
+          <li>현대자동차 에르고모션 시트 공압제어기 제조 협력사에서 소프트웨어 담당으로 4년째 근무 중</li>
+          <li>AUTOSAR 기반 플랫폼 적용 및 구성</li>
+          <li>임베디드 펌웨어 및 제어 로직 개발</li>
+          <li>CAN 통신 및 진단(Diagnostics) 기능 개발</li>
+          <li>테스트/검증 및 품질 관리</li>
+        </ul>
+
+        <p class="section-title"><span class="prompt">$</span> <span class="cmd">cat</span> <span class="path">production_history.log</span></p>
+        <div class="projects">
+          <div class="project">
+            <div class="project-info">
+              <span class="project-name">GV60 <span class="code">(JW PE)</span></span>
+              <span class="project-role">에르고모션 시트 공압제어기 소프트웨어 검증 참여</span>
+            </div>
+            <span class="status production">양산 중</span>
+          </div>
+          <div class="project">
+            <div class="project-info">
+              <span class="project-name">펠리세이드 <span class="code">(LX3)</span></span>
+              <span class="project-role">에르고모션 시트 공압제어기 소프트웨어 검증 참여</span>
+            </div>
+            <span class="status production">양산 중</span>
+          </div>
+          <div class="project">
+            <div class="project-info">
+              <span class="project-name">EV5 <span class="code">(OV1)</span></span>
+              <span class="project-role">에르고모션 시트 공압제어기 소프트웨어 검증 참여</span>
+            </div>
+            <span class="status production">양산 중</span>
+          </div>
+          <div class="project">
+            <div class="project-info">
+              <span class="project-name">텔루라이드 <span class="code">(LQ2)</span></span>
+              <span class="project-role">에르고모션 시트 공압제어기 소프트웨어 검증 참여</span>
+            </div>
+            <span class="status production">양산 중</span>
+          </div>
+          <div class="project">
+            <div class="project-info">
+              <span class="project-name">산타페 <span class="code">(MX5 PE)</span></span>
+              <span class="project-role">에르고모션 시트 공압제어기 소프트웨어 설계 참여</span>
+            </div>
+            <span class="status developing">개발 중</span>
+          </div>
+          <div class="project">
+            <div class="project-info">
+              <span class="project-name">K5 <span class="code">(DL3PE2)</span></span>
+              <span class="project-role">에르고모션 시트 공압제어기 소프트웨어 설계 참여</span>
+            </div>
+            <span class="status developing">개발 중</span>
+          </div>
+        </div>
+
+        <p class="muted-small"># SDV로 전환되는 자동차 산업의 흐름 속에서, 지금 하고 있는 임베디드와 AUTOSAR 영역을 더 깊이 파고드는 것이 목표입니다.<span class="cursor"></span></p>
+      </div>
+    </main>
   </body>
 </html>
