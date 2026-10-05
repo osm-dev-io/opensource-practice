@@ -5,26 +5,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>이*현 | 인프런 오픈소스 챌린지</title>
     <style>
-      body {
+      :root {
+        --seoul-red: #c8102e;
+        --seoul-black: #111111;
+        --chelsea-blue: #034694;
+        --bg: #f6f6f8;
+        --card: #ffffff;
+        --text: #1d1d1f;
+        --muted: #5f6368;
+      }
+
+      * {
         box-sizing: border-box;
+      }
+
+      body {
         min-height: 100vh;
         margin: 0;
-        padding: 24px;
-        display: grid;
-        place-items: center;
+        padding: 48px 24px;
+        background: var(--bg);
+        color: var(--text);
         font-family: sans-serif;
+        line-height: 1.6;
+        word-break: keep-all;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      header {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .stripe {
+        width: 120px;
+        height: 8px;
+        margin: 0 auto 24px;
+        border-radius: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--seoul-red) 0 50%,
+          var(--chelsea-blue) 50% 100%
+        );
       }
 
       h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 5vw, 3.25rem);
+        line-height: 1.3;
+      }
+
+      .intro {
         margin: 0;
-        font-size: clamp(2rem, 5vw, 4rem);
-        line-height: 1.4;
+        color: var(--muted);
+        font-size: 1.1rem;
+      }
+
+      .clubs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .club {
+        overflow: hidden;
+        border-radius: 16px;
+        background: var(--card);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      .club-head {
+        padding: 28px 24px;
+        color: #ffffff;
+      }
+
+      .seoul .club-head {
+        background: linear-gradient(135deg, var(--seoul-red), var(--seoul-black));
+      }
+
+      .chelsea .club-head {
+        background: linear-gradient(135deg, var(--chelsea-blue), #001f4d);
+      }
+
+      .league {
+        margin: 0 0 4px;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        opacity: 0.85;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.75rem;
+      }
+
+      .club-body {
+        padding: 24px;
+      }
+
+      .club-body p {
+        margin: 0 0 16px;
+      }
+
+      dl {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 8px 16px;
+        margin: 0;
+      }
+
+      dt {
+        color: var(--muted);
+        font-weight: bold;
+      }
+
+      dd {
+        margin: 0;
+      }
+
+      .seoul dt {
+        color: var(--seoul-red);
+      }
+
+      .chelsea dt {
+        color: var(--chelsea-blue);
+      }
+
+      footer {
+        margin-top: 40px;
+        color: var(--muted);
         text-align: center;
-        word-break: keep-all;
+      }
+
+      .seoul-text {
+        color: var(--seoul-red);
+      }
+
+      .chelsea-text {
+        color: var(--chelsea-blue);
       }
     </style>
   </head>
   <body>
-    <h1>이*현님. 이 페이지를 자유롭게 꾸며주세요.</h1>
+    <main>
+      <header>
+        <div class="stripe" aria-hidden="true"></div>
+        <h1>안녕하세요, 이*현입니다 ⚽</h1>
+        <p class="intro">
+          제가 제일 좋아하는 건 축구, 그중에서도 서울의 <strong>FC서울</strong>과
+          런던의 <strong>첼시FC</strong>입니다.
+        </p>
+      </header>
+
+      <section class="clubs">
+        <article class="club seoul">
+          <div class="club-head">
+            <p class="league">K LEAGUE 1</p>
+            <h2>FC서울</h2>
+          </div>
+          <div class="club-body">
+            <p>
+              서울월드컵경기장을 홈으로 쓰는 K리그 대표 구단입니다.
+              빨강과 검정의 유니폼, 그리고 응원단 '수호신'의 함성이 가득한
+              상암에서의 경기는 언제 봐도 설렙니다.
+            </p>
+            <dl>
+              <dt>창단</dt>
+              <dd>1983년</dd>
+              <dt>홈구장</dt>
+              <dd>서울월드컵경기장</dd>
+              <dt>상징색</dt>
+              <dd>빨강 · 검정</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="club chelsea">
+          <div class="club-head">
+            <p class="league">PREMIER LEAGUE</p>
+            <h2>첼시FC</h2>
+          </div>
+          <div class="club-body">
+            <p>
+              런던 스탬퍼드 브리지를 홈으로 쓰는 '더 블루스'입니다.
+              프리미어리그 우승은 물론 UEFA 챔피언스리그 정상에도 두 번 오른,
+              파란 물결이 매력적인 팀입니다.
+            </p>
+            <dl>
+              <dt>창단</dt>
+              <dd>1905년</dd>
+              <dt>홈구장</dt>
+              <dd>스탬퍼드 브리지</dd>
+              <dt>상징색</dt>
+              <dd>파랑 · 흰색</dd>
+            </dl>
+          </div>
+        </article>
+      </section>
+
+      <footer>
+        <p>K리그에서는 <strong class="seoul-text">FC서울</strong>, 유럽에서는 <strong class="chelsea-text">첼시</strong>. 오늘도 두 팀을 응원합니다!</p>
+      </footer>
+    </main>
   </body>
 </html>
